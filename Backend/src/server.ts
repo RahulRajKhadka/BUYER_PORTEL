@@ -1,24 +1,13 @@
-import express from "express";
-import mongoose from "mongoose";
+import app from "./app";
 import dotenv from "dotenv";
-import cors from "cors";
+import { connectDatabase } from "./config/database";
 
 dotenv.config();
 
-const app = express();
+const PORT = process.env.PORT || 5000;
 
-app.use(cors());
-app.use(express.json());
+connectDatabase();
 
-app.get("/", (req, res) => {
-  res.send("API is running...");
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
-
-mongoose.connect(process.env.MONGODB_URI!)
-  .then(() => {
-    console.log("MongoDB Connected");
-    app.listen(5000, () => {
-      console.log("Server running on port 5000");
-    });
-  })
-  .catch((err) => console.log(err));
