@@ -51,13 +51,15 @@ export interface Property {
   price: number;
   type: PropertyType;
   status: PropertyStatus;
+   location: string;
   address: {
     street: string;
     city: string;
     state: string;
     country: string;
     zipCode: string;
-  };H
+  }
+  
   features: {
     bedrooms: number;
     bathrooms: number;

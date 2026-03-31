@@ -1,4 +1,4 @@
-import { Heart, MapPin, Bed, Bath, Square, Trash2 } from 'lucide-react';
+import {  MapPin, Bed, Bath, Square, Trash2 } from 'lucide-react';
 import type { Favourite } from "../../types/index.js"
 import { Badge } from '../ui/Badge.js';
 import { Button } from '../ui/Button.js';

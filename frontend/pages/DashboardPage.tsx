@@ -3,6 +3,7 @@ import { Heart, Search, Home, Shield, Calendar } from 'lucide-react';
 import { useAuthStore } from '../store/authStore.js';
 import { useFavourites } from '../hooks/useFavourties.js';
 import { useProperties } from '../hooks/useProperties.js';
+import type { Favourite } from "../types/index.js"
 
 const roleColor: Record<string, string> = {
   buyer: 'bg-blue-50 text-blue-700',
@@ -136,7 +137,7 @@ export const DashboardPage = () => {
           </div>
         ) : (
           <div className="flex flex-col gap-2">
-            {favs.slice(0, 3).map((fav) => (
+            {favs.slice(0, 3).map((fav:Favourite) => (
               <div
                 key={fav._id}
                 className="bg-white border border-gray-100 rounded-xl px-4 py-3 flex items-center gap-3 hover:border-gray-200 transition-colors cursor-pointer"

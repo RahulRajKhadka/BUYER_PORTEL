@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Eye, EyeOff, Home, Check } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth.js';
-import { Input } from '../compnents/ui/Input.js';
+
 
 const passwordRules = [
   { label: '8+ characters', test: (p: string) => p.length >= 8 },

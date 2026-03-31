@@ -149,8 +149,8 @@ export const PropertyCard = ({
             <Square className="w-3.5 h-3.5" />
             {features.area.toLocaleString()} ft²
           </span>
-          {features.parking && <Car className="w-3.5 h-3.5" title="Parking" />}
-          {features.furnished && <Sofa className="w-3.5 h-3.5" title="Furnished" />}
+          {features.parking && <Car className="w-3.5 h-3.5"  />}
+          {features.furnished && <Sofa className="w-3.5 h-3.5" />}
         </div>
 
         {/* Price */}

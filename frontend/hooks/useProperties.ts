@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
-import { propertyService, PropertyFilters } from '../services/propertyService.js';
+import { propertyService } from '../services/propertyService.js';
+import type { PropertyFilters } from '../services/propertyService.js';
 
 export const useProperties = (filters: PropertyFilters = {}) => {
   return useQuery({

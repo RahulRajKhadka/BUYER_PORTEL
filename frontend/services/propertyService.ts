@@ -1,5 +1,5 @@
 import api from  "../lib/api.js"
-import type { Property, ApiResponse } from  "../types/index.js"
+import type { Property } from  "../types/index.js"
 
 export interface PropertyFilters {
   page?: number;
