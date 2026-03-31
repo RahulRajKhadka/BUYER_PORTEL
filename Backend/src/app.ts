@@ -14,12 +14,9 @@ const app = express();
 
 
 app.use(cors({
-  origin: [
-    'http://localhost:5173',
-    'https://buyer-portel.vercel.app',
-    'https://buyer-portel-a2q3.vercel.app',
-    process.env.FRONTEND_URL || '',
-  ],
+  origin: function(origin, callback) {
+    callback(null, true);
+  },
   credentials: true,
 }));
 
