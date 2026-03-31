@@ -13,13 +13,13 @@ export const errorHandler = (
 ): void => {
   logger.error('Error:', { message: err.message, stack: err.stack });
 
-  // Operational errors (our custom errors)
+  
   if (err instanceof AppError) {
     sendError(res, err.message, err.statusCode);
     return;
   }
 
-  // Mongoose validation error
+  
   if (err instanceof mongoose.Error.ValidationError) {
     const errors = Object.values(err.errors).map((e) => ({
       field: e.path,
@@ -29,20 +29,20 @@ export const errorHandler = (
     return;
   }
 
-  // Mongoose duplicate key error
+
   if ((err as NodeJS.ErrnoException).code === '11000') {
     const field = Object.keys((err as any).keyValue || {})[0] || 'field';
     sendError(res, `${field} already exists`, 409);
     return;
   }
 
-  // Mongoose CastError (invalid ObjectId)
+  
   if (err instanceof mongoose.Error.CastError) {
     sendError(res, `Invalid ${err.path}: ${err.value}`, 400);
     return;
   }
 
-  // JWT errors
+  
   if (err.name === 'JsonWebTokenError') {
     sendError(res, 'Invalid token', 401);
     return;
@@ -53,7 +53,7 @@ export const errorHandler = (
     return;
   }
 
-  // Unknown errors - don't leak details in production
+  
   const message = config.isDev ? err.message : 'Something went wrong';
   sendError(res, message, 500);
 };

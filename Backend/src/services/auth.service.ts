@@ -1,6 +1,7 @@
 import { User } from '../models/User';
 import { IUser } from '../types';
 import { generateTokenPair, verifyRefreshToken } from '../utils/jwt';
+
 import {
   AuthenticationError,
   ConflictError,
@@ -31,6 +32,10 @@ export class AuthService {
       throw new ConflictError('An account with this email already exists');
     }
 
+
+    const defaultAvatar = `https://ui-avatars.com/api/?name=${encodeURIComponent(input.name)}`;
+
+    
     const user = await User.create({
       name: input.name.trim(),
       email: input.email.toLowerCase().trim(),

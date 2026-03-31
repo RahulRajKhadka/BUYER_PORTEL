@@ -65,6 +65,8 @@ export const authorize = (...roles: UserRole[]) => {
   };
 };
 
+
+
 export const optionalAuth = (
   req: AuthRequest,
   _res: Response,

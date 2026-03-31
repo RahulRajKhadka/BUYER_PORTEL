@@ -17,10 +17,15 @@ export interface AuthTokens {
   refreshToken: string;
 }
 
+
 export interface AuthResponse {
-  user: User;
-  accessToken: string;
-  refreshToken: string;
+  success: boolean;
+  message: string;
+  data: {
+    user: User;
+    accessToken: string;
+    refreshToken: string;
+  };
 }
 
 export interface LoginInput {
@@ -52,7 +57,7 @@ export interface Property {
     state: string;
     country: string;
     zipCode: string;
-  };
+  };H
   features: {
     bedrooms: number;
     bathrooms: number;
