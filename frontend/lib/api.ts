@@ -2,8 +2,9 @@ import axios, { AxiosError, } from 'axios';
 import type { InternalAxiosRequestConfig} from "axios"
 import { useAuthStore } from '../store/authStore.js';
 
+
 const api = axios.create({
-  baseURL: 'http://localhost:5000/api',
+ baseURL: import.meta.env.VITE_API_URL + '/api',
   headers: { 'Content-Type': 'application/json' },
   timeout: 15000,
   withCredentials: true,   // ← important for cookies / auth headers
